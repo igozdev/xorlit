@@ -71,11 +71,6 @@ namespace xorlit
     };
 
     template <size_t Size>
-    constexpr String<Size> CreateString(const char (&s)[Size])
-    {
-        return String<Size>(s);
-    }
-    template <size_t Size>
     constexpr String<Size> CreateString(const char (&s)[Size], char key)
     {
         return String<Size>(s, key);
