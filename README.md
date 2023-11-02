@@ -1,5 +1,14 @@
 # xorlit
-Compile time string literal encryptor for C++.
+> Compile time string literal encryptor for C++.
+
+[![license][badge.license]][license]
+[![release][badge.release]][release]
+
+[badge.license]: https://img.shields.io/badge/license-mit-green.svg
+[license]: https://github.com/igozdev/xorlit/blob/main/LICENSE
+[badge.release]: https://img.shields.io/github/release/igozdev/xorlit.svg
+[release]: https://github.com/igozdev/xorlit/releases/latest
+
 * [Usage](#usage)
 * [Example](#example)
 
