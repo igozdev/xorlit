@@ -3,11 +3,14 @@
 
 [![license][badge.license]][license]
 [![release][badge.release]][release]
+[![godbolt][badge.godbolt]][godbolt]
 
 [badge.license]: https://img.shields.io/badge/license-mit-green.svg
 [license]: https://github.com/igozdev/xorlit/blob/main/LICENSE
 [badge.release]: https://img.shields.io/github/release/igozdev/xorlit.svg
 [release]: https://github.com/igozdev/xorlit/releases/latest
+[badge.godbolt]: https://img.shields.io/badge/try_it-on_godbolt-indigo.svg
+[godbolt]: https://godbolt.org/z/Ksd36MMo7
 
 * [Usage](#usage)
 * [Example](#example)
