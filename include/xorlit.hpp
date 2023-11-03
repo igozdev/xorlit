@@ -43,12 +43,22 @@ namespace xorlit
 #endif
 
 	template <std::size_t I>
+#if defined(_MSC_VER)
+	__forceinline
+#else
+	__attribute__((always_inline))
+#endif
 	constexpr void xor_str(char* d, char key, const char* s)
 	{
 		d[I] = s[I] ^ key;
 		xor_str<I - 1>(d, key, s);
 	}
 	template <>
+#if defined(_MSC_VER)
+	__forceinline
+#else
+	__attribute__((always_inline))
+#endif
 	constexpr void xor_str<0>(char* d, char key, const char* s)
 	{
 		d[0] = s[0] ^ key;
@@ -58,12 +68,22 @@ namespace xorlit
 	struct string
 	{
 	public:
+#if defined(_MSC_VER)
+		__forceinline
+#else
+		__attribute__((always_inline))
+#endif
 		constexpr string(const char(&s)[Size], char key)
 			: m_data(), m_key(key)
 		{
 			xor_str<Size - 1>(m_data, m_key, s);
 		}
 
+#if defined(_MSC_VER)
+		__forceinline
+#else
+		__attribute__((always_inline))
+#endif
 		const char* rexor()
 		{
 			for (char& c : m_data) {
@@ -73,6 +93,11 @@ namespace xorlit
 		}
 #if defined(__cpp_attributes) && __cpp_attributes >= 200809L
 		[[nodiscard]]
+#endif
+#if defined(_MSC_VER)
+		__forceinline
+#else
+		__attribute__((always_inline))
 #endif
 		const char* xor_data() const
 		{
@@ -86,6 +111,11 @@ namespace xorlit
 #if defined(__cpp_attributes) && __cpp_attributes >= 200809L
 		[[nodiscard]]
 #endif
+#if defined(_MSC_VER)
+		__forceinline
+#else
+		__attribute__((always_inline))
+#endif
 		char* data()
 #if defined(__cpp_noexcept_function_type) && __cpp_noexcept_function_type >= 201510L
 			noexcept
@@ -95,6 +125,11 @@ namespace xorlit
 		}
 #if defined(__cpp_attributes) && __cpp_attributes >= 200809L
 		[[nodiscard]]
+#endif
+#if defined(_MSC_VER)
+		__forceinline
+#else
+		__attribute__((always_inline))
 #endif
 		const char* data() const
 #if defined(__cpp_noexcept_function_type) && __cpp_noexcept_function_type >= 201510L
@@ -106,6 +141,11 @@ namespace xorlit
 
 #if defined(__cpp_attributes) && __cpp_attributes >= 200809L
 		[[nodiscard]]
+#endif
+#if defined(_MSC_VER)
+		__forceinline
+#else
+		__attribute__((always_inline))
 #endif
 		char key() const
 #if defined(__cpp_noexcept_function_type) && __cpp_noexcept_function_type >= 201510L
@@ -125,6 +165,11 @@ namespace xorlit
 	template <std::size_t Size>
 #if defined(__cpp_attributes) && __cpp_attributes >= 200809L
 	[[nodiscard]]
+#endif
+#if defined(_MSC_VER)
+	__forceinline
+#else
+	__attribute__((always_inline))
 #endif
 	constexpr string<Size> make_str(const char(&s)[Size], char key = static_cast<char>(xorlit::seed))
 	{
